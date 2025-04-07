@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Copilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #F5F7FA;
+      color: #333;
+    }
+
+    .product-section {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: #4B2AAD;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: #ffffff;
+      padding: 12px 20px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .tab-btn:hover {
+      background: #eee;
+    }
+
+    .tab-btn.active {
+      background: #4B2AAD;
+      color: #fff;
+      border-color: #4B2AAD;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #eee;
+    }
+
+    .card h4 {
+      margin-top: 0;
+      color: #4B2AAD;
+    }
+
+    .card p, .card ul {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+
+    .user-section {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="product-section">
+    <h1>🤝 Copilot</h1>
+
+    <div class="tabs">
+      <div class="tab-btn active" onclick="switchTab(this, 'solucao')">Solução</div>
+      <div class="tab-btn" onclick="switchTab(this, 'funcionamento')">Funcionamento</div>
+      <div class="tab-btn" onclick="switchTab(this, 'diferenciais')">Diferenciais</div>
+      <div class="tab-btn" onclick="switchTab(this, 'premissas')">Premissas</div>
+    </div>
+
+    <!-- Solução -->
+    <div id="solucao" class="tab-content active">
+      <div class="card">
+        <h4>Solução</h4>
+        <p>O Copilot utiliza IA para transcrever chamadas em tempo real, sugerir respostas contextuais e ajudar os agentes com artigos relevantes, proporcionando uma experiência mais ágil e personalizada.</p>
+        <img src="copilot.png" alt="Imagem Copilot" style="margin-top: 20px; width: 100%; border-radius: 8px;" />
+      </div>
+    </div>
+
+    <!-- Funcionamento -->
+    <div id="funcionamento" class="tab-content">
+      <div class="card">
+        <h4>⚙️ Considerações Técnicas</h4>
+        <div class="card-grid">
+          <div class="card"><h4>Análise em tempo real</h4><p>Captura e processa conversas de voz e texto para identificar intenções, sentimentos e contexto da interação.</p></div>
+          <div class="card"><h4>Sugestão de respostas</h4><p>Gera automaticamente sugestões baseadas no histórico do cliente, reduzindo o tempo de resposta dos agentes.</p></div>
+          <div class="card"><h4>Resumos automáticos</h4><p>Cria resumos detalhados das interações para agilizar a finalização de chamadas e registros no CRM.</p></div>
+          <div class="card"><h4>Busca inteligente</h4><p>Localiza artigos e informações relevantes para ajudar os agentes a resolverem dúvidas rapidamente.</p></div>
+          <div class="card"><h4>Integrações</h4><p>Integra-se ao Talkdesk Studio e CRMs para personalizar recomendações e fluxos de atendimento.</p></div>
+          <div class="card"><h4>Aprendizado contínuo</h4><p>Ajusta respostas e sugestões com base em feedbacks e interações anteriores.</p></div>
+        </div>
+      </div>
+
+      <div class="user-section">
+        <h4>👥 Por tipo de usuário</h4>
+        <div class="card-grid">
+          <div class="card">
+            <h4>👤 Agente</h4>
+            <ul>
+              <li>Transcrição em tempo real das chamadas para facilitar o foco no atendimento.</li>
+              <li>Sugestões inteligentes com respostas automáticas e artigos relevantes.</li>
+              <li>Sumário do histórico do cliente durante e após a interação.</li>
+              <li>Insights pós-chamada para melhorar o atendimento futuro.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>👨‍💼 Supervisor</h4>
+            <ul>
+              <li>Visualiza transcrições em tempo real e resumos pós-chamada.</li>
+              <li>Acompanha sugestões inteligentes para garantir melhores práticas.</li>
+              <li>Intervenção rápida e análise de qualidade de atendimento.</li>
+              <li>Monitoramento contínuo da performance dos agentes.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>⚙️ Administrador</h4>
+            <ul>
+              <li>Configura sugestões inteligentes e integrações com outros sistemas.</li>
+              <li>Monitora o uso da plataforma com base em resumos e transcrições.</li>
+              <li>Gerencia acesso e permissões para uso adequado das funcionalidades.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Diferenciais -->
+    <div id="diferenciais" class="tab-content">
+      <div class="card">
+        <h4>Diferenciais</h4>
+        <ul>
+          <li>Integração com o Talkdesk Knowledge Management para sugestões precisas durante o atendimento.</li>
+          <li>Transcrição automática de chamadas para otimizar o fluxo de trabalho.</li>
+          <li>Redução do tempo de atendimento com informações centralizadas.</li>
+          <li>Atendimento contextualizado com histórico das interações do cliente.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Premissas -->
+    <div id="premissas" class="tab-content">
+      <div class="card-grid">
+        <div class="card">
+          <h4>Avaliação das Necessidades da Equipe</h4>
+          <p>Compreender as necessidades dos usuários para configurar sugestões inteligentes e transcrições em tempo real conforme os requisitos de atendimento.</p>
+        </div>
+        <div class="card">
+          <h4>Configuração de Sugestões Inteligentes</h4>
+          <p>Definir respostas automáticas e artigos relevantes com base em dados históricos e melhores práticas.</p>
+        </div>
+        <div class="card">
+          <h4>Política de Acesso e Segurança</h4>
+          <p>Estabelecer controles de acesso e permissões para proteger informações sensíveis.</p>
+        </div>
+        <div class="card">
+          <h4>Monitoramento e Ajustes Contínuos</h4>
+          <p>Configurar alertas e monitoramento para ajustar sugestões com base em feedbacks e desempenho.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function switchTab(btn, tabId) {
+      const parent = btn.closest('.product-section');
+      const buttons = parent.querySelectorAll('.tab-btn');
+      const contents = parent.querySelectorAll('.tab-content');
+      buttons.forEach(b => b.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      parent.querySelector('#' + tabId).classList.add('active');
+    }
+  </script>
+</body>
+</html>

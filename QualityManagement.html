@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quality Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #F5F7FA;
+      color: #333;
+    }
+    .product-section {
+      max-width: 1200px;
+      margin: auto;
+    }
+    h1 {
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: #4B2AAD;
+    }
+    .tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: #ffffff;
+      padding: 12px 20px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    .tab-btn:hover {
+      background: #eee;
+    }
+    .tab-btn.active {
+      background: #4B2AAD;
+      color: #fff;
+      border-color: #4B2AAD;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #eee;
+    }
+    .card h4 {
+      margin-top: 0;
+      color: #4B2AAD;
+    }
+    .card p, .card ul {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .card img {
+      margin-top: 15px;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 100%;
+    }
+    ul {
+      padding-left: 18px;
+    }
+    .user-section {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="product-section">
+    <h1>📋 Quality Management</h1>
+
+    <div class="tabs">
+      <div class="tab-btn active" onclick="switchTab(this, 'solucao')">Solução</div>
+      <div class="tab-btn" onclick="switchTab(this, 'funcionamento')">Funcionamento</div>
+      <div class="tab-btn" onclick="switchTab(this, 'diferenciais')">Diferenciais</div>
+      <div class="tab-btn" onclick="switchTab(this, 'premissas')">Premissas</div>
+    </div>
+
+    <!-- Solução -->
+    <div id="solucao" class="tab-content active">
+      <div class="card">
+        <h4>Solução</h4>
+        <p>O Quality Management (QM) é uma poderosa ferramenta de monitoramento, acompanhamento e controle para melhorar tanto o atendimento ao cliente, bem como a produtividade dos operadores e a qualidade da informação que chega aos gestores.</p>
+        <img src="QualityManagement.png" alt="Imagem Quality Management">
+      </div>
+    </div>
+
+    <!-- Funcionamento -->
+    <div id="funcionamento" class="tab-content">
+      <div class="card">
+        <h4>⚙️ Funcionamento</h4>
+        <div class="card-grid">
+          <div class="card"><h4>Monitoramento e análise automatizada</h4><p>IA e NLP para revisar chamadas, e-mails e chats com base em critérios.</p></div>
+          <div class="card"><h4>Formulários de avaliação</h4><p>Critérios personalizáveis para garantir alinhamento estratégico.</p></div>
+          <div class="card"><h4>Detecção de conformidade</h4><p>Identifica violações regulatórias como GDPR e PCI DSS.</p></div>
+          <div class="card"><h4>Feedback contínuo</h4><p>Fornece insights aos agentes com base nas avaliações.</p></div>
+          <div class="card"><h4>Dashboards e relatórios</h4><p>Análises detalhadas para líderes tomarem decisões.</p></div>
+          <div class="card"><h4>Integração com WFM</h4><p>Sincroniza qualidade com gestão de escalas e treinamentos.</p></div>
+        </div>
+      </div>
+
+      <div class="user-section">
+        <div class="card-grid">
+          <div class="card">
+            <h4>👤 Agente</h4>
+            <ul>
+              <li>Visualiza avaliações e pontos de melhoria.</li>
+              <li>Recebe feedback com sugestões de desempenho.</li>
+              <li>Participa de treinamentos personalizados.</li>
+              <li>Acompanha evolução com relatórios individuais.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>👨‍💼 Supervisor</h4>
+            <ul>
+              <li>Monitora interações e aplica formulários personalizados.</li>
+              <li>Automatiza pontuações com IA e identifica padrões.</li>
+              <li>Fornece feedback e direciona treinamentos.</li>
+              <li>Analisa relatórios para otimizar performance.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>⚙️ Administrador</h4>
+            <ul>
+              <li>Configura critérios e regras de avaliação.</li>
+              <li>Define automações e integrações com a plataforma.</li>
+              <li>Monitora métricas globais para decisões estratégicas.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Diferenciais -->
+    <div id="diferenciais" class="tab-content">
+      <div class="card">
+        <h4>Diferenciais</h4>
+        <p>O diferencial do Talkdesk QM em comparação aos demais no mercado está em sua <strong>integração nativa com o Talkdesk CX Cloud</strong>, oferecendo uma visão holística e em tempo real das interações dos agentes.</p>
+        <p>Sua <strong>inteligência artificial no QM Assist</strong> facilita a análise automática e oferece recomendações personalizadas.</p>
+        <p>Permite avaliações mais rápidas e precisas, com <strong>fluxos simplificados</strong> e uma interface intuitiva, tornando a gestão de qualidade mais eficiente e acessível.</p>
+      </div>
+    </div>
+
+    <!-- Premissas -->
+    <div id="premissas" class="tab-content">
+      <div class="card-grid">
+        <div class="card">
+          <h4>Critérios de Avaliação</h4>
+          <p>Definir critérios claros para avaliação de desempenho dos agentes.</p>
+        </div>
+        <div class="card">
+          <h4>Capacitação da Equipe</h4>
+          <p>Treinar supervisores e agentes sobre como usar o QM para melhorias.</p>
+        </div>
+        <div class="card">
+          <h4>Formulários Personalizados</h4>
+          <p>Criar formulários alinhados às necessidades da operação.</p>
+        </div>
+        <div class="card">
+          <h4>Integração com Sistemas</h4>
+          <p>Garantir integração com CRM e outras ferramentas para visão 360°.</p>
+        </div>
+        <div class="card">
+          <h4>Feedback Contínuo</h4>
+          <p>Estabelecer processo constante de orientação e desenvolvimento.</p>
+        </div>
+        <div class="card">
+          <h4>Teste e Ajuste</h4>
+          <p>Revisar e otimizar as métricas e formulários conforme a evolução.</p>
+        </div>
+        <div class="card">
+          <h4>IA e Automação</h4>
+          <p>Automatizar avaliações e garantir melhorias com NLP e machine learning.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <script>
+    function switchTab(btn, tabId) {
+      const parent = btn.closest('.product-section');
+      const buttons = parent.querySelectorAll('.tab-btn');
+      const contents = parent.querySelectorAll('.tab-content');
+      buttons.forEach(b => b.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      parent.querySelector('#' + tabId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

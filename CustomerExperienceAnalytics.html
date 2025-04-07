@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Customer Experience Analytics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #F5F7FA;
+      color: #333;
+    }
+    .product-section {
+      max-width: 1200px;
+      margin: auto;
+    }
+    h1 {
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: #4B2AAD;
+    }
+    .tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: #ffffff;
+      padding: 12px 20px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    .tab-btn:hover {
+      background: #eee;
+    }
+    .tab-btn.active {
+      background: #4B2AAD;
+      color: #fff;
+      border-color: #4B2AAD;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #eee;
+    }
+    .card h4 {
+      margin-top: 0;
+      color: #4B2AAD;
+    }
+    .card p, .card ul {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .card img {
+      margin-top: 15px;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 100%;
+    }
+    ul {
+      padding-left: 18px;
+    }
+    .user-section {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="product-section">
+    <h1>📊 Customer Experience Analytics</h1>
+
+    <div class="tabs">
+      <div class="tab-btn active" onclick="switchTab(this, 'solucao')">Solução</div>
+      <div class="tab-btn" onclick="switchTab(this, 'funcionamento')">Funcionamento</div>
+      <div class="tab-btn" onclick="switchTab(this, 'diferenciais')">Diferenciais</div>
+      <div class="tab-btn" onclick="switchTab(this, 'premissas')">Premissas</div>
+    </div>
+
+    <!-- Solução -->
+    <div id="solucao" class="tab-content active">
+      <div class="card">
+        <h4>Solução</h4>
+        <p>A análise da experiência do cliente da Talkdesk usa <strong>IA generativa</strong> para extrair insights das interações com o cliente, ajudando os Contact Centers a entender e resolver problemas de atendimento ao cliente de forma eficiente.</p>
+        <img src="CustomerExperienceAnalytics.png" alt="Customer Experience Analytics">
+      </div>
+    </div>
+
+    <!-- Funcionamento -->
+    <div id="funcionamento" class="tab-content">
+      <div class="card">
+        <h4>⚙️ Funcionamento</h4>
+        <div class="card-grid">
+          <div class="card"><h4>Análise de jornada do cliente</h4><p>Mapeia e visualiza todas as interações do cliente em diferentes canais, identificando pontos de fricção e oportunidades de melhoria.</p></div>
+          <div class="card"><h4>Métricas em tempo real</h4><p>Monitora KPIs como AHT, FCR e NPS, otimizando o desempenho do atendimento.</p></div>
+          <div class="card"><h4>Análise preditiva com IA</h4><p>Identifica padrões de comportamento e prevê tendências de satisfação.</p></div>
+          <div class="card"><h4>Dashboards interativos</h4><p>Visualizações dinâmicas para interpretação de dados e decisões estratégicas.</p></div>
+          <div class="card"><h4>Segmentação avançada</h4><p>Permite análises por perfis de clientes, tipos de atendimento e canais.</p></div>
+          <div class="card"><h4>Integração com outras ferramentas</h4><p>Conecta-se com CRMs e BI para visão 360° do cliente.</p></div>
+        </div>
+      </div>
+
+      <div class="user-section">
+        <div class="card-grid">
+          <div class="card">
+            <h4>👤 Agente</h4>
+            <ul>
+              <li>Acompanha métricas e desempenho individuais.</li>
+              <li>Visualiza feedbacks e ajusta a abordagem no atendimento.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>👨‍💼 Supervisor</h4>
+            <ul>
+              <li>Monitora a equipe com KPIs como CSAT, NPS e FCR.</li>
+              <li>Identifica tendências e ajusta estratégias com base em dados.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>⚙️ Administrador</h4>
+            <ul>
+              <li>Define permissões e personaliza dashboards.</li>
+              <li>Integra o CX Analytics com outras ferramentas e mantém a qualidade dos dados.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Diferenciais -->
+    <div id="diferenciais" class="tab-content">
+      <div class="card">
+        <h4>Diferenciais</h4>
+        <p>Se diferencia por oferecer <strong>análises em tempo real</strong>, consolidando métricas de múltiplos canais para uma visão 360° do atendimento. Com <strong>inteligência artificial integrada</strong>, identifica padrões, prevê tendências e sugere melhorias proativas. Seus dashboards são intuitivos e personalizáveis, permitindo maior flexibilidade do que soluções mais engessadas.</p>
+        <p>A integração nativa com o Talkdesk reduz complexidade e acelera a implementação. Diferente de ferramentas como Google Analytics, Zendesk Explore e Salesforce Einstein, o CX Analytics foca na experiência do cliente dentro do contact center, entregando insights acionáveis para otimizar operações e satisfação do cliente.</p>
+      </div>
+    </div>
+
+    <!-- Premissas -->
+    <div id="premissas" class="tab-content">
+      <div class="card-grid">
+        <div class="card">
+          <h4>Definição de Objetivos e KPIs</h4>
+          <p>Coleta e análise unificada de dados omnichannel, utilizando IA para identificar tendências, medir KPIs em tempo real e fornecer insights acionáveis para otimizar a experiência do cliente.</p>
+        </div>
+        <div class="card">
+          <h4>Qualidade e Governança dos Dados</h4>
+          <p>Garantir que os dados coletados sejam precisos, completos e bem categorizados para análises confiáveis.</p>
+        </div>
+        <div class="card">
+          <h4>Configuração Personalizada</h4>
+          <p>Ajustar dashboards, filtros e relatórios de acordo com as necessidades específicas do negócio.</p>
+        </div>
+        <div class="card">
+          <h4>Integração com Ferramentas</h4>
+          <p>Conectar o CX Analytics a sistemas como CRM, BI e plataformas de feedback para insights mais completos.</p>
+        </div>
+        <div class="card">
+          <h4>Treinamento e Adoção</h4>
+          <p>Capacitar administradores, supervisores e agentes para usarem a ferramenta com eficácia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function switchTab(btn, tabId) {
+      const parent = btn.closest('.product-section');
+      const buttons = parent.querySelectorAll('.tab-btn');
+      const contents = parent.querySelectorAll('.tab-content');
+      buttons.forEach(b => b.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      parent.querySelector('#' + tabId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

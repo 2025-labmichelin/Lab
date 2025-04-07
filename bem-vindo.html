@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Bem-vindos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #F6F7FB, #ECEBFF);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #4B2AAD;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      font-size: 1.1rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px 20px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .card.active {
+      cursor: pointer;
+      border-color: #4B2AAD;
+    }
+
+    .card.active:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+    }
+
+    .card.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      color: #4B2AAD;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .main-btn {
+      background-color: #4B2AAD;
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .main-btn:hover {
+      background-color: #351e80;
+    }
+
+    @media (max-width: 768px) {
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bem-vindo!</h1>
+  <p class="subtitle">Sua jornada com Wittel & Talkdesk começa aqui.</p>
+
+  <div class="card-container">
+
+    <!-- Etapa 1: Ativa -->
+    <a href="etapa1.html" class="card active">
+      <h3>Etapa 1</h3>
+      <p>Missão do projeto e objetivos</p>
+    </a>
+
+    <!-- Etapas 2 e 3: Bloqueadas -->
+    <div class="card disabled">
+      <h3>Etapa 2</h3>
+      <p>Nosso time e competências</p>
+    </div>
+
+    <div class="card disabled">
+      <h3>Etapa 3</h3>
+      <p>Como estruturamos tudo</p>
+    </div>
+
+  </div>
+
+</body>
+</html>

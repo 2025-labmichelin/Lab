@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Performance Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #F5F7FA;
+      color: #333;
+    }
+    .product-section {
+      max-width: 1200px;
+      margin: auto;
+    }
+    h1 {
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: #4B2AAD;
+    }
+    .tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: #ffffff;
+      padding: 12px 20px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    .tab-btn:hover {
+      background: #eee;
+    }
+    .tab-btn.active {
+      background: #4B2AAD;
+      color: #fff;
+      border-color: #4B2AAD;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #eee;
+      margin-bottom: 20px;
+    }
+    .card h4 {
+      margin-top: 0;
+      color: #4B2AAD;
+    }
+    .card p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .card img {
+      margin-top: 15px;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="product-section">
+    <h1>📊 Performance Management</h1>
+
+    <div class="tabs">
+      <div class="tab-btn active" onclick="switchTab(this, 'solucao')">Solução</div>
+      <div class="tab-btn" onclick="switchTab(this, 'funcionamento')">Funcionamento</div>
+      <div class="tab-btn" onclick="switchTab(this, 'diferenciais')">Diferenciais</div>
+      <div class="tab-btn" onclick="switchTab(this, 'premissas')">Premissas</div>
+    </div>
+
+    <!-- Solução -->
+    <div id="solucao" class="tab-content active">
+      <div class="card">
+        <h4>Solução</h4>
+        <p>O Performance Management ajuda a otimizar o desempenho da equipe por meio da análise de dados, desafios, gamificação e orientação.</p>
+        <img src="PerformanceManagement.png" alt="Imagem Performance Management">
+      </div>
+    </div>
+
+    <!-- Funcionamento -->
+    <div id="funcionamento" class="tab-content">
+      <div class="card">
+        <h4>Funcionamento</h4>
+        <p>Esta seção será preenchida em breve com os detalhes sobre o funcionamento do Performance Management.</p>
+      </div>
+    </div>
+
+    <!-- Diferenciais -->
+    <div id="diferenciais" class="tab-content">
+      <div class="card">
+        <h4>Diferenciais</h4>
+        <p>Esta seção será preenchida em breve com os diferenciais do Performance Management.</p>
+      </div>
+    </div>
+
+    <!-- Premissas -->
+    <div id="premissas" class="tab-content">
+      <div class="card">
+        <h4>Premissas</h4>
+        <p>Esta seção será preenchida em breve com as premissas para implementação do Performance Management.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <script>
+    function switchTab(btn, tabId) {
+      const parent = btn.closest('.product-section');
+      const buttons = parent.querySelectorAll('.tab-btn');
+      const contents = parent.querySelectorAll('.tab-content');
+      buttons.forEach(b => b.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      parent.querySelector('#' + tabId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
