@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #F5F7FA;
+      color: #333;
+    }
+
+    .product-section {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1 {
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: #4B2AAD;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: #ffffff;
+      padding: 12px 20px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .tab-btn:hover {
+      background: #eee;
+    }
+
+    .tab-btn.active {
+      background: #4B2AAD;
+      color: #fff;
+      border-color: #4B2AAD;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #eee;
+      margin-bottom: 20px;
+    }
+
+    .card h4 {
+      margin-top: 0;
+      color: #4B2AAD;
+    }
+
+    .card p, .card ul {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .card img {
+      margin-top: 15px;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="product-section">
+    <h1>📈 Report</h1>
+
+    <div class="tabs">
+      <div class="tab-btn active" onclick="switchTab(this, 'solucao')">Solução</div>
+      <div class="tab-btn" onclick="switchTab(this, 'funcionamento')">Funcionamento</div>
+      <div class="tab-btn" onclick="switchTab(this, 'diferenciais')">Diferenciais</div>
+      <div class="tab-btn" onclick="switchTab(this, 'premissas')">Premissas</div>
+    </div>
+
+    <!-- Solução -->
+    <div id="solucao" class="tab-content active">
+      <div class="card-grid">
+        <div class="card">
+          <h4>Solução</h4>
+          <p>Use dados em tempo real e históricos com o Talkdesk Reporting para otimizar operações e decisões estratégicas, integrando tudo via APIs Explore e Live.</p>
+          <img src="report.png" alt="Dashboard de relatórios Report">
+        </div>
+      </div>
+    </div>
+
+    <!-- Funcionamento -->
+    <div id="funcionamento" class="tab-content">
+      <div class="card">
+        <h4>Funcionamento</h4>
+        <div class="card-grid">
+          <div class="card">
+            <h4>Coleta de Dados</h4>
+            <p>Registra automaticamente informações de chamadas, mensagens e interações omnichannel, como tempo de espera, duração e resultados.</p>
+          </div>
+          <div class="card">
+            <h4>Processamento</h4>
+            <p>Usa o Explore para organizar dados em relatórios detalhados e o Live para monitoramento instantâneo, com refresh de até 5 minutos.</p>
+          </div>
+          <div class="card">
+            <h4>Personalização</h4>
+            <p>Permite criar relatórios customizados via interface intuitiva, com filtros, métricas (ex.: ASA, CSAT) e visualizações ajustáveis.</p>
+          </div>
+          <div class="card">
+            <h4>Acesso e Exportação</h4>
+            <p>Disponibiliza dashboards e relatórios na plataforma, com opções de download (CSV, JSON) e agendamento de envio.</p>
+          </div>
+          <div class="card">
+            <h4>Integração</h4>
+            <p>Conecta-se a CRMs e sistemas BI, unificando dados para análises mais amplas e estratégicas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Diferenciais -->
+    <div id="diferenciais" class="tab-content">
+      <div class="card">
+        <h4>Diferenciais</h4>
+        <ul>
+          <li><strong>Flexibilidade Avançada:</strong> Relatórios personalizáveis que se adaptam às necessidades específicas de cada cliente.</li>
+          <li><strong>Inteligência em Tempo Real:</strong> O Talkdesk Live oferece monitoramento instantâneo e preditivo, superando relatórios estáticos.</li>
+          <li><strong>Integração Nativa:</strong> Conexão fluida com ecossistemas como CRMs e IA, sem adaptações limitadas.</li>
+          <li><strong>Usabilidade Intuitiva:</strong> Dashboards visuais e simples, com baixa curva de aprendizado.</li>
+          <li><strong>Escalabilidade Otimizada:</strong> Suporte a grandes volumes de dados e operações globais com desempenho consistente.</li>
+        </ul>
+        <p>Esse diferencial posiciona a Talkdesk como uma escolha superior, oferecendo valor único frente às soluções padrão de mercado.</p>
+      </div>
+    </div>
+
+    <!-- Premissas -->
+    <div id="premissas" class="tab-content">
+      <div class="card-grid">
+        <div class="card">
+          <h4>Conectividade</h4>
+          <ul>
+            <li>Requer acesso estável à internet para coleta e exibição de dados em tempo real via nuvem.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Dados Estruturados</h4>
+          <ul>
+            <li>Depende de interações registradas corretamente na plataforma para gerar relatórios precisos.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Configuração Inicial</h4>
+          <ul>
+            <li>Necessita de setup adequado (ex.: definição de KPIs e filtros) para atender às metas específicas da empresa.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Treinamento de Usuários</h4>
+          <ul>
+            <li>Assume que equipes saibam usar o Talkdesk Explore e Live para extrair valor dos relatórios.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <script>
+    function switchTab(btn, tabId) {
+      const parent = btn.closest('.product-section');
+      const buttons = parent.querySelectorAll('.tab-btn');
+      const contents = parent.querySelectorAll('.tab-content');
+      buttons.forEach(b => b.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      parent.querySelector('#' + tabId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
