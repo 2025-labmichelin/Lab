@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Performance Management</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
@@ -12,21 +13,25 @@
       background-color: #F5F7FA;
       color: #333;
     }
+
     .product-section {
       max-width: 1200px;
       margin: auto;
     }
+
     h1 {
       font-weight: 600;
       margin-bottom: 30px;
       color: #4B2AAD;
     }
+
     .tabs {
       display: flex;
       gap: 12px;
       margin-bottom: 30px;
       flex-wrap: wrap;
     }
+
     .tab-btn {
       background: #ffffff;
       padding: 12px 20px;
@@ -36,25 +41,31 @@
       transition: all 0.3s ease;
       font-weight: 500;
     }
+
     .tab-btn:hover {
       background: #eee;
     }
+
     .tab-btn.active {
       background: #4B2AAD;
       color: #fff;
       border-color: #4B2AAD;
     }
+
     .tab-content {
       display: none;
     }
+
     .tab-content.active {
       display: block;
       animation: fadeIn 0.3s ease;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     .card {
       background: #ffffff;
       padding: 20px;
@@ -63,19 +74,26 @@
       border: 1px solid #eee;
       margin-bottom: 20px;
     }
+
     .card h4 {
       margin-top: 0;
       color: #4B2AAD;
     }
-    .card p {
+
+    .card p, .card ul {
       font-size: 14px;
       line-height: 1.6;
     }
+
     .card img {
       margin-top: 15px;
       border-radius: 8px;
       width: 100%;
       max-width: 100%;
+    }
+
+    ul {
+      padding-left: 20px;
     }
   </style>
 </head>
@@ -104,7 +122,7 @@
     <div id="funcionamento" class="tab-content">
       <div class="card">
         <h4>Funcionamento</h4>
-        <p>Esta seção será preenchida em breve com os detalhes sobre o funcionamento do Performance Management.</p>
+        <p>O Performance Management da Talkdesk funciona coletando dados de interações via Talkdesk Live e Explore, processando métricas como tempo de resposta e CSAT, gerando relatórios ou dashboards personalizados, fornecendo feedback imediato ou periódico aos agentes e ajustando metas com base em análises contínuas.</p>
       </div>
     </div>
 
@@ -112,7 +130,13 @@
     <div id="diferenciais" class="tab-content">
       <div class="card">
         <h4>Diferenciais</h4>
-        <p>Esta seção será preenchida em breve com os diferenciais do Performance Management.</p>
+        <ul>
+          <li>Combinação de dados ao vivo e históricos para análise mais completa.</li>
+          <li>Personalização avançada por agente para orientar decisões individuais.</li>
+          <li>Uso de IA para gerar insights preditivos e orientações baseadas em dados.</li>
+          <li>Interface simples e intuitiva que facilita o uso diário.</li>
+          <li>Capacidade de escalar avaliações para equipes globais.</li>
+        </ul>
       </div>
     </div>
 
@@ -120,7 +144,13 @@
     <div id="premissas" class="tab-content">
       <div class="card">
         <h4>Premissas</h4>
-        <p>Esta seção será preenchida em breve com as premissas para implementação do Performance Management.</p>
+        <ul>
+          <li>Conectividade estável para transmissão de dados em tempo real.</li>
+          <li>Configuração inicial de métricas e metas de desempenho.</li>
+          <li>Participação ativa dos agentes no processo de desenvolvimento.</li>
+          <li>Uso consistente das ferramentas Talkdesk por supervisores.</li>
+          <li>Disponibilidade de dados históricos para análises comparativas.</li>
+        </ul>
       </div>
     </div>
 
