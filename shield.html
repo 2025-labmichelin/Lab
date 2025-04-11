@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shield</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
@@ -12,21 +13,25 @@
       background-color: #F5F7FA;
       color: #333;
     }
+
     .product-section {
       max-width: 1200px;
       margin: auto;
     }
+
     h1 {
       font-weight: 600;
       margin-bottom: 30px;
       color: #4B2AAD;
     }
+
     .tabs {
       display: flex;
       gap: 12px;
       margin-bottom: 30px;
       flex-wrap: wrap;
     }
+
     .tab-btn {
       background: #ffffff;
       padding: 12px 20px;
@@ -36,25 +41,37 @@
       transition: all 0.3s ease;
       font-weight: 500;
     }
+
     .tab-btn:hover {
       background: #eee;
     }
+
     .tab-btn.active {
       background: #4B2AAD;
       color: #fff;
       border-color: #4B2AAD;
     }
+
     .tab-content {
       display: none;
     }
+
     .tab-content.active {
       display: block;
       animation: fadeIn 0.3s ease;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
     .card {
       background: #ffffff;
       padding: 20px;
@@ -63,19 +80,40 @@
       border: 1px solid #eee;
       margin-bottom: 20px;
     }
+
     .card h4 {
       margin-top: 0;
       color: #4B2AAD;
     }
-    .card p {
+
+    .card p, .card ul {
       font-size: 14px;
       line-height: 1.6;
     }
+
     .card img {
       margin-top: 15px;
       border-radius: 8px;
       width: 100%;
       max-width: 100%;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .user-section {
+      margin-top: 40px;
+    }
+
+    .user-section h3 {
+      color: #4B2AAD;
+      margin-bottom: 10px;
+    }
+
+    .user-section ul {
+      margin: 0;
+      padding-left: 20px;
     }
   </style>
 </head>
@@ -95,16 +133,71 @@
     <div id="solucao" class="tab-content active">
       <div class="card">
         <h4>Solução</h4>
-        <p>Use dados em tempo real e históricos com o Talkdesk Reporting para otimizar operações e decisões estratégicas, integrando tudo via APIs Explore e Live.</p>
-        <img src="shield.png" alt="Imagem Shield">
+        <p>O Shield permite manter a central de atendimento segura, detectando comportamentos suspeitos e mitigando os riscos de segurança dos clientes.</p>
+        <img src="shield.png" alt="Interface do sistema de segurança Shield">
       </div>
     </div>
 
     <!-- Funcionamento -->
     <div id="funcionamento" class="tab-content">
       <div class="card">
-        <h4>Funcionamento</h4>
-        <p>Conteúdo em breve sobre o funcionamento do Shield.</p>
+        <h4>⚙️ Considerações Técnicas</h4>
+        <div class="card-grid">
+          <div class="card">
+            <h4>Talkdesk Guardian</h4>
+            <p>Monitora atividades dos agentes em tempo real, detectando comportamentos suspeitos e garantindo conformidade com políticas internas e regulatórias.</p>
+          </div>
+          <div class="card">
+            <h4>Talkdesk Identity</h4>
+            <p>Utiliza biometria de voz para autenticar clientes de forma segura, reduzindo a necessidade de perguntas de segurança manuais.</p>
+          </div>
+          <div class="card">
+            <h4>Monitoramento de acessos</h4>
+            <p>Analisa sessões dos agentes, detectando padrões de login incomuns ou dispositivos não autorizados.</p>
+          </div>
+          <div class="card">
+            <h4>Proteção contra fraudes</h4>
+            <p>Identifica tentativas de engenharia social e acesso indevido às informações sensíveis dos clientes.</p>
+          </div>
+          <div class="card">
+            <h4>Criptografia e conformidade</h4>
+            <p>Garante que as interações e os dados do contact center estejam protegidos de acordo com padrões como GDPR, PCI DSS e outras regulamentações.</p>
+          </div>
+          <div class="card">
+            <h4>APIs de segurança</h4>
+            <p>Facilita a integração com sistemas externos para reforçar a segurança da autenticação e do gerenciamento de identidade.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="user-section">
+        <h4>👥 Por tipo de usuário</h4>
+        <div class="card-grid">
+          <div class="card">
+            <h4>👤 Agente</h4>
+            <ul>
+              <li>Controle de acesso a dados sensíveis com mascaramento de informações.</li>
+              <li>Monitoramento em tempo real via Talkdesk Guardian.</li>
+              <li>Autenticação de voz e validação de número com o Talkdesk Identity.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>👨‍💼 Supervisor</h4>
+            <ul>
+              <li>Auditoria de chamadas para garantir conformidade com normas de segurança.</li>
+              <li>Visão geral de riscos críticos com Talkdesk Guardian.</li>
+              <li>Validação da identidade do cliente em tempo real com o Talkdesk Identity.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>⚙️ Administrador</h4>
+            <ul>
+              <li>Configuração de políticas de acesso e autenticação multifatorial.</li>
+              <li>Auditorias detalhadas e filtragem de comportamentos de risco com o Guardian.</li>
+              <li>Conformidade regulatória com o Identity e controle total de identidade.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -112,15 +205,54 @@
     <div id="diferenciais" class="tab-content">
       <div class="card">
         <h4>Diferenciais</h4>
-        <p>Em breve você verá os diferenciais estratégicos do Shield.</p>
+        <p>O Talkdesk Shield se diferencia por oferecer segurança e conformidade avançadas sem comprometer a experiência do usuário.</p>
+        <p>Com detecção de ameaças em tempo real, protege contra fraudes e acessos não autorizados, indo além das soluções tradicionais.</p>
+        <p>IA identifica padrões suspeitos e bloqueia riscos antes que causem impacto.</p>
+        <p>Conformidade automatizada com regulamentações como LGPD, reduzindo riscos operacionais.</p>
+        <p>Integrado nativamente ao Talkdesk CX Cloud, proporciona segurança proativa e sem fricção.</p>
       </div>
     </div>
 
     <!-- Premissas -->
     <div id="premissas" class="tab-content">
-      <div class="card">
-        <h4>Premissas</h4>
-        <p>Esta aba será preenchida com os requisitos de implementação do Shield.</p>
+      <div class="card-grid">
+        <div class="card">
+          <h4>Análise de Conformidade Regulatória</h4>
+          <ul>
+            <li>Avaliar as exigências de conformidade regulatória (como GDPR e HIPAA).</li>
+            <li>Identificar os dados sensíveis que precisam de proteção.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Definição de Políticas de Acesso</h4>
+          <ul>
+            <li>Estabelecer políticas de acesso para usuários.</li>
+            <li>Garantir que cada um tenha acesso apenas às informações necessárias.</li>
+            <li>Implementar controles de mascaramento de dados sensíveis.</li>
+            <li>Utilizar biometria de voz, análise de comportamento e criptografia para proteger dados e prevenir fraudes.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Integração com Sistemas Existentes</h4>
+          <ul>
+            <li>Integrar o Shield com outros sistemas, como CRMs.</li>
+            <li>Garantir fluxo contínuo de dados sem comprometer a segurança.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Configuração de Alertas e Monitoramento</h4>
+          <ul>
+            <li>Definir alertas para detectar tentativas de fraude ou acessos não autorizados.</li>
+            <li>Monitorar sessões de usuários em tempo real.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Gestão de Identidade e Autenticação</h4>
+          <ul>
+            <li>Implementar autenticação de voz e validação de números de telefone.</li>
+            <li>Verificar a identidade dos clientes e prevenir fraudes.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
