@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resultado</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    #blocoResultado {
+      padding: 1.5rem;
+      border-radius: 12px;
+      color: white;
+      margin-bottom: 1rem;
+    }
+    canvas {
+      max-width: 100%;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  
+<header style="background-color: #002c5f; color: white; padding: 1.5rem 2rem; text-align: center;">
+  <h1 style="margin: 0; font-size: 1.8rem;">SmartCX  Resultado do Diagnóstico</h1>
+  <p style="margin-top: 0.5rem; font-size: 1rem; font-weight: 400; color: white;">
+    Confira abaixo o resultado do seu diagnóstico e veja em qual nível sua operação se encontra.
+  </p>
+</header>
+
+  
+<div style="display: flex; align-items: center; justify-content: center; gap: 1rem; background-color: #eaf0f6; padding: 1.5rem 2rem; margin-bottom: 2rem;">
+  <img src="../assets/raquel.png" alt="Raquel IA" style="width: 100px; border-radius: 50%;">
+  <div>
+    <h2 style="margin: 0 0 0.5rem 0; color: #002c5f;">Oi! Eu sou a Raquel 👋</h2>
+    <p style="margin: 0; color: #002c5f;">Vamos analisar juntos o resultado do seu diagnóstico e sugerir os próximos passos mais indicados para sua operação.</p>
+  </div>
+</div>
+
+  <div class="container">
+    <div id="blocoResultado">
+      <h2 id="tituloResultado" style="margin: 0; font-size: 1.2rem;"></h2>
+    </div>
+    <canvas id="graficoRadar"></canvas>
+  </div>
+
+  <script>
+    const faixas = [
+      {
+        Faixa: "0 – 10 pts",
+        Nivel: "Iniciando",
+        Recomendacao: "Release 1",
+        Cor: "#003f5b"
+      },
+      {
+        Faixa: "11 – 17 pts",
+        Nivel: "Emergente",
+        Recomendacao: "Release 2",
+        Cor: "#007b7f"
+      },
+      {
+        Faixa: "18 – 24 pts",
+        Nivel: "Eficiente",
+        Recomendacao: "Release 3",
+        Cor: "#38ac64"
+      },
+      {
+        Faixa: "25 – 30 pts",
+        Nivel: "Inteligente",
+        Recomendacao: "Release 4",
+        Cor: "#ff9913"
+      },
+      {
+        Faixa: "31 – 36 pts",
+        Nivel: "Avançado",
+        Recomendacao: "Release 5",
+        Cor: "#c00000"
+      }
+    ];
+
+    const respostas = JSON.parse(localStorage.getItem("respostasFormulario")) || {};
+
+    const blocos = {
+      'Estratégia e Cultura': (respostas.q1 || 0) + (respostas.q2 || 0),
+      'Canais de Atendimento': (respostas.q3 || 0) + (respostas.q4 || 0),
+      'Processos e Pessoas': (respostas.q5 || 0) + (respostas.q6 || 0),
+      'Tecnologia e Automação': (respostas.q7 || 0) + (respostas.q8 || 0),
+      'Governança e Performance': (respostas.q9 || 0) + (respostas.q10 || 0)
+    };
+
+    const total = Object.values(blocos).reduce((a, b) => a + b, 0);
+
+    const faixa = faixas.find(f => {
+      const [min, max] = f.Faixa.replace(' pts', '').split('–').map(s => parseInt(s.trim()));
+      return total >= min && total <= max;
+    });
+
+    if (!faixa) {
+      document.getElementById("tituloResultado").innerText = "Não foi possível calcular o resultado.";
+      document.getElementById("blocoResultado").style.backgroundColor = "#999";
+    } else {
+      document.getElementById("tituloResultado").innerText = `Pontuação: ${total}/36 • Nível: ${faixa.Nivel} • ${faixa.Recomendacao}`;
+      document.getElementById("blocoResultado").style.backgroundColor = faixa.Cor;
+
+      const ctx = document.getElementById('graficoRadar').getContext('2d');
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: Object.keys(blocos),
+          datasets: [{
+            label: 'Pontuação por Dimensão',
+            data: Object.values(blocos),
+            fill: true,
+            borderColor: faixa.Cor,
+            backgroundColor: faixa.Cor + '33',
+            pointBackgroundColor: faixa.Cor
+          }]
+        },
+        options: {
+          scales: {
+            r: {
+              min: 0,
+              max: 6,
+              ticks: { stepSize: 1 }
+            }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
