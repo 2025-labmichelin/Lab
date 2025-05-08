@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal SmartCX - Wittel</title>
+  <style>
+    :root {
+      --azul-escuro: #002c5f;
+      --azul-claro: #eaf0f6;
+      --cinza-claro: #f4f4f4;
+      --branco: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--azul-claro);
+      color: #333;
+    }
+
+    header {
+      background-color: var(--azul-escuro);
+      color: white;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    .intro {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background-color: var(--branco);
+      border-bottom: 1px solid #ddd;
+    }
+
+    .intro img {
+      width: 120px;
+      margin-right: 2rem;
+    }
+
+    .intro-text {
+      max-width: 600px;
+    }
+
+    .intro-text h2 {
+      margin-top: 0;
+      font-size: 1.6rem;
+      color: var(--azul-escuro);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 3rem 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    .card h3 {
+      margin-top: 1rem;
+      color: var(--azul-escuro);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+    }
+
+    .button {
+      margin-top: 1.2rem;
+      display: inline-block;
+      background-color: var(--azul-escuro);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--cinza-claro);
+      color: #666;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SmartCX • Catálogo de Soluções Wittel</h1>
+  </header>
+
+  <section class="intro">
+    <img src="..raquel.png" alt="Raquel - IA da Wittel">
+    <div class="intro-text">
+      <h2>Oi! Eu sou a Raquel 👋</h2>
+      <p>Bem-vindo ao Portal SmartCX. Aqui você encontra todas as soluções da Wittel explicadas de forma simples e objetiva. Escolha uma opção abaixo e vamos explorar juntos.</p>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h3>SmartCX</h3>
+      <p>Hub de tecnologias, produtos e soluções. Com a governança inteligente da Wittel.</p>
+      <a class="button" href="#">Conheça mais</a>
+    </div>
+    <div class="card">
+      <h3>Teamfy</h3>
+      <p>Gestão de atendimento e helpdesk com automação</p>
+      <a class="button" href="#" target="_blank">Conheça mais</a>
+    </div>
+    <div class="card">
+      <h3>Talkdesk</h3>
+      <p>Soluções e serviços de contact center</p>
+      <a class="button" href="https://2025-labmichelin.github.io/Lab/">Conheça mais</a>
+    </div>
+    <div class="card">
+      <h3>Consultoria CXperts</h3>
+      <p>Acompanhamento estratégico com especialistas Wittel</p>
+      <a class="button" href="#">Conheça mais</a>
+    </div>
+    
+  </section>
+
+  <footer>
+    © 2025 Wittel | Desenvolvido com apoio da Raquel, sua IA especialista em CX 💙
+  </footer>
+</body>
+</html>
