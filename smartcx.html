@@ -22,12 +22,14 @@
       font-size: 1.8rem;
     }
     .raquel-box {
-      background-color: #eaf0f6;
-      color: #002c5f;
-      padding: 1.5rem 2rem;
-      font-size: 1rem;
-      text-align: center;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background-color: #eaf0f6;
+  padding: 1.5rem 2rem;
+  text-align: center; /* <- este é o ponto chave */
+  }
     .container {
       max-width: 900px;
       margin: auto;
@@ -88,8 +90,8 @@
   <header>
     <h1>SmartCX • Uma combinação inteligente de automação e interação humana</h1>
   </header>
-  <div class="raquel-box" style="display: flex; align-items: center; gap: 1.5rem; background-color: #eaf0f6; padding: 1.5rem 2rem;">
-  <img src="raquel.png" alt="Raquel IA" style="width: 100px; border-radius: 50%;">
+  <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; background-color: #eaf0f6; padding: 1.5rem 2rem; margin-bottom: 2rem;">
+  <img src="../assets/raquel.png" alt="Raquel IA" style="width: 100px; border-radius: 50%;">
   <div>
     <h2 style="margin: 0 0 0.5rem 0; color: #002c5f;">Oi! Eu sou a Raquel 👋</h2>
     <p style="margin: 0; color: #002c5f;">O SmartCX é a nossa forma inteligente de transformar experiências em todos os canais. Vou te mostrar como essa jornada funciona na prática!</p>
@@ -114,7 +116,7 @@
     </div>
 
   <div style="text-align: center; margin: 3rem 0;">
-    <img src="piramide.png" alt="Pirâmide de Maturidade SmartCX" style="width: 100%; max-width: 1400px; height: auto;">
+    <img src="../assets/piramide.png" alt="Pirâmide de Maturidade SmartCX" style="width: 100%; max-width: 1400px; height: auto;">
   </div>
 </body>
 </html>
