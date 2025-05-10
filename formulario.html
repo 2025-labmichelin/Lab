@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SmartCX • Diagnóstico de Maturidade</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SmartCX • Diagnóstico de Maturidade</title>
+<style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
@@ -81,105 +82,138 @@
     .submit-btn:hover {
       background: #004f87;
     }
+  
+.card-identificacao {
+  background-color: #ffffff;
+  border-left: 6px solid #2563eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.card-identificacao h3 {
+  margin-top: 0;
+  color: #002c5f;
+}
+.card-identificacao label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+.card-identificacao input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
   </style>
 </head>
 <body>
-  <header>
-    <h1 style="text-align: center;">SmartCX • Diagnóstico de Maturidade</h1>
-  </header>
-  <div class="raquel-box" style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; background-color: #eaf0f6; padding: 1.5rem 2rem;">
-  <img src="raquel.png" alt="Raquel IA" style="width: 100px; border-radius: 50%;">
-  <div>
-    <h2 style="margin: 0 0 0.5rem 0; color: #002c5f;">Oi! Eu sou a Raquel 👋</h2>
-    <p style="margin: 0; color: #002c5f;">Bem-vindo ao Diagnóstico de Maturidade. Vamos analisar juntos o estágio atual da sua operação de atendimento para recomendar a melhor solução.</p>
-  </div>
+<header>
+<h1 style="text-align: center;">SmartCX • Diagnóstico de Maturidade</h1>
+</header>
+<div class="raquel-box" style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; background-color: #eaf0f6; padding: 1.5rem 2rem;">
+<img alt="Raquel IA" src="../assets/raquel.png" style="width: 100px; border-radius: 50%;"/>
+<div>
+<h2 style="margin: 0 0 0.5rem 0; color: #002c5f;">Oi! Eu sou a Raquel 👋</h2>
+<p style="margin: 0; color: #002c5f;">Bem-vindo ao Diagnóstico de Maturidade. Vamos analisar juntos o estágio atual da sua operação de atendimento para recomendar a melhor solução.</p>
 </div>
-  <div class="container">
-    <!-- INÍCIO DO FORMULÁRIO -->
-    <h2>Estratégia e Cultura</h2>
-    <div class="pergunta">
-      <p>1. A experiência do cliente faz parte da estratégia da empresa?</p>
-      <label class="opcao"><input type="radio" name="q1" value="0">Não é considerada</label>
-      <label class="opcao"><input type="radio" name="q1" value="1">É importante, mas ainda sem ações estruturadas</label>
-      <label class="opcao"><input type="radio" name="q1" value="2">Existe um plano básico de CX</label>
-      <label class="opcao"><input type="radio" name="q1" value="3">É prioridade estratégica com metas claras</label>
-    </div>
-    <div class="pergunta">
-      <p>2. Existe uma área ou liderança dedicada ao Contact Center?</p>
-      <label class="opcao"><input type="radio" name="q2" value="0">Não</label>
-      <label class="opcao"><input type="radio" name="q2" value="1">Parcialmente compartilhada com outras áreas</label>
-      <label class="opcao"><input type="radio" name="q2" value="2">Sim, mas com pouca autonomia</label>
-      <label class="opcao"><input type="radio" name="q2" value="3">Sim, com gestão dedicada e papel estratégico</label>
-    </div>
+</div>
+<div class="container">
+<div class="card-identificacao">
+<h3>Antes de começar...</h3>
+<label for="empresa">Nome da empresa*</label>
+<input id="empresa" name="empresa" required="" type="text"/>
+<label for="responsavel">Seu nome*</label>
+<input id="responsavel" name="responsavel" required="" type="text"/>
+<label for="cargo">Cargo ou função*</label>
+<input id="cargo" name="cargo" required="" type="text"/>
+<label for="email">E-mail*</label>
+<input id="email" name="email" required="" type="email"/>
+</div>
 
-    <h2>Canais de Atendimento</h2>
-    <div class="pergunta">
-      <p>3. Quais canais a empresa oferece atualmente?</p>
-      <label class="opcao"><input type="radio" name="q3" value="0">Apenas telefone</label>
-      <label class="opcao"><input type="radio" name="q3" value="1">Telefone + 1 canal digital</label>
-      <label class="opcao"><input type="radio" name="q3" value="2">Múltiplos canais, mas não integrados</label>
-      <label class="opcao"><input type="radio" name="q3" value="3">Atendimento omnichannel com histórico unificado</label>
-    </div>
-    <div class="pergunta">
-      <p>4. Os canais possuem regras de prioridade, horário ou habilidade para roteamento?</p>
-      <label class="opcao"><input type="radio" name="q4" value="0">Não</label>
-      <label class="opcao"><input type="radio" name="q4" value="1">Parcialmente</label>
-      <label class="opcao"><input type="radio" name="q4" value="2">Sim, com regras definidas</label>
-      <label class="opcao"><input type="radio" name="q4" value="3">Sim, com roteamento inteligente e dinâmico</label>
-    </div>
-
-    <h2>Processos e Pessoas</h2>
-    <div class="pergunta">
-      <p>5. Existem fluxos claros e padronizados para atendimento?</p>
-      <label class="opcao"><input type="radio" name="q5" value="0">Não documentados</label>
-      <label class="opcao"><input type="radio" name="q5" value="1">Existem, mas são pouco seguidos</label>
-      <label class="opcao"><input type="radio" name="q5" value="2">Seguidos por maioria da equipe</label>
-      <label class="opcao"><input type="radio" name="q5" value="3">Automatizados e integrados com a operação</label>
-    </div>
-    <div class="pergunta">
-      <p>6. A equipe é treinada e monitorada regularmente?</p>
-      <label class="opcao"><input type="radio" name="q6" value="0">Não há rotina definida</label>
-      <label class="opcao"><input type="radio" name="q6" value="1">Treinamentos esporádicos</label>
-      <label class="opcao"><input type="radio" name="q6" value="2">Treinamentos regulares + feedback</label>
-      <label class="opcao"><input type="radio" name="q6" value="3">Treinamentos contínuos com gestão de desempenho</label>
-    </div>
-
-    <h2>Tecnologia e Automação</h2>
-    <div class="pergunta">
-      <p>7. A empresa usa bots ou automação no atendimento?</p>
-      <label class="opcao"><input type="radio" name="q7" value="0">Não</label>
-      <label class="opcao"><input type="radio" name="q7" value="1">Em testes ou uso restrito</label>
-      <label class="opcao"><input type="radio" name="q7" value="2">Em uso para fluxos simples</label>
-      <label class="opcao"><input type="radio" name="q7" value="3">Em uso com IA, aprendizado contínuo e transferência inteligente</label>
-    </div>
-    <div class="pergunta">
-      <p>8. Os dados da operação são utilizados em tempo real?</p>
-      <label class="opcao"><input type="radio" name="q8" value="0">Não são monitorados</label>
-      <label class="opcao"><input type="radio" name="q8" value="1">Apenas relatórios históricos</label>
-      <label class="opcao"><input type="radio" name="q8" value="2">Dashboards em tempo real</label>
-      <label class="opcao"><input type="radio" name="q8" value="3">Dados em tempo real com análise preditiva</label>
-    </div>
-
-    <h2>Governança e Performance</h2>
-    <div class="pergunta">
-      <p>9. Existem metas claras e KPIs definidos para o atendimento?</p>
-      <label class="opcao"><input type="radio" name="q9" value="0">Não</label>
-      <label class="opcao"><input type="radio" name="q9" value="1">Metas genéricas</label>
-      <label class="opcao"><input type="radio" name="q9" value="2">KPIs por canal e tipo de atendimento</label>
-      <label class="opcao"><input type="radio" name="q9" value="3">Gestão ativa com análise de causa e planos de ação</label>
-    </div>
-    <div class="pergunta">
-      <p>10. A operação é auditada ou acompanhada por programas de qualidade?</p>
-      <label class="opcao"><input type="radio" name="q10" value="0">Não</label>
-      <label class="opcao"><input type="radio" name="q10" value="1">Avaliações pontuais</label>
-      <label class="opcao"><input type="radio" name="q10" value="2">Avaliação estruturada por amostras</label>
-      <label class="opcao"><input type="radio" name="q10" value="3">Avaliação automatizada com feedback contínuo</label>
-    </div>
-    <!-- FIM DO FORMULÁRIO -->
-  </div>
-
+<!-- INÍCIO DO FORMULÁRIO -->
+<h2>Estratégia e Cultura</h2>
+<div class="pergunta">
+<p>1. A experiência do cliente faz parte da estratégia da empresa?</p>
+<label class="opcao"><input name="p1" type="radio" value="0"/>Não é considerada</label>
+<label class="opcao"><input name="p1" type="radio" value="1"/>É importante, mas ainda sem ações estruturadas</label>
+<label class="opcao"><input name="p1" type="radio" value="2"/>Existe um plano básico de CX</label>
+<label class="opcao"><input name="p1" type="radio" value="3"/>É prioridade estratégica com metas claras</label>
+</div>
+<div class="pergunta">
+<p>2. Existe uma área ou liderança dedicada ao Contact Center?</p>
+<label class="opcao"><input name="p2" type="radio" value="0"/>Não</label>
+<label class="opcao"><input name="p2" type="radio" value="1"/>Parcialmente compartilhada com outras áreas</label>
+<label class="opcao"><input name="p2" type="radio" value="2"/>Sim, mas com pouca autonomia</label>
+<label class="opcao"><input name="p2" type="radio" value="3"/>Sim, com gestão dedicada e papel estratégico</label>
+</div>
+<h2>Canais de Atendimento</h2>
+<div class="pergunta">
+<p>3. Quais canais a empresa oferece atualmente?</p>
+<label class="opcao"><input name="p3" type="radio" value="0"/>Apenas telefone</label>
+<label class="opcao"><input name="p3" type="radio" value="1"/>Telefone + 1 canal digital</label>
+<label class="opcao"><input name="p3" type="radio" value="2"/>Múltiplos canais, mas não integrados</label>
+<label class="opcao"><input name="p3" type="radio" value="3"/>Atendimento omnichannel com histórico unificado</label>
+</div>
+<div class="pergunta">
+<p>4. Os canais possuem regras de prioridade, horário ou habilidade para roteamento?</p>
+<label class="opcao"><input name="p4" type="radio" value="0"/>Não</label>
+<label class="opcao"><input name="p4" type="radio" value="1"/>Parcialmente</label>
+<label class="opcao"><input name="p4" type="radio" value="2"/>Sim, com regras definidas</label>
+<label class="opcao"><input name="p4" type="radio" value="3"/>Sim, com roteamento inteligente e dinâmico</label>
+</div>
+<h2>Processos e Pessoas</h2>
+<div class="pergunta">
+<p>5. Existem fluxos claros e padronizados para atendimento?</p>
+<label class="opcao"><input name="p5" type="radio" value="0"/>Não documentados</label>
+<label class="opcao"><input name="p5" type="radio" value="1"/>Existem, mas são pouco seguidos</label>
+<label class="opcao"><input name="p5" type="radio" value="2"/>Seguidos por maioria da equipe</label>
+<label class="opcao"><input name="p5" type="radio" value="3"/>Automatizados e integrados com a operação</label>
+</div>
+<div class="pergunta">
+<p>6. A equipe é treinada e monitorada regularmente?</p>
+<label class="opcao"><input name="p6" type="radio" value="0"/>Não há rotina definida</label>
+<label class="opcao"><input name="p6" type="radio" value="1"/>Treinamentos esporádicos</label>
+<label class="opcao"><input name="p6" type="radio" value="2"/>Treinamentos regulares + feedback</label>
+<label class="opcao"><input name="p6" type="radio" value="3"/>Treinamentos contínuos com gestão de desempenho</label>
+</div>
+<h2>Tecnologia e Automação</h2>
+<div class="pergunta">
+<p>7. A empresa usa bots ou automação no atendimento?</p>
+<label class="opcao"><input name="p7" type="radio" value="0"/>Não</label>
+<label class="opcao"><input name="p7" type="radio" value="1"/>Em testes ou uso restrito</label>
+<label class="opcao"><input name="p7" type="radio" value="2"/>Em uso para fluxos simples</label>
+<label class="opcao"><input name="p7" type="radio" value="3"/>Em uso com IA, aprendizado contínuo e transferência inteligente</label>
+</div>
+<div class="pergunta">
+<p>8. Os dados da operação são utilizados em tempo real?</p>
+<label class="opcao"><input name="p8" type="radio" value="0"/>Não são monitorados</label>
+<label class="opcao"><input name="p8" type="radio" value="1"/>Apenas relatórios históricos</label>
+<label class="opcao"><input name="p8" type="radio" value="2"/>Dashboards em tempo real</label>
+<label class="opcao"><input name="p8" type="radio" value="3"/>Dados em tempo real com análise preditiva</label>
+</div>
+<h2>Governança e Performance</h2>
+<div class="pergunta">
+<p>9. Existem metas claras e KPIs definidos para o atendimento?</p>
+<label class="opcao"><input name="p9" type="radio" value="0"/>Não</label>
+<label class="opcao"><input name="p9" type="radio" value="1"/>Metas genéricas</label>
+<label class="opcao"><input name="p9" type="radio" value="2"/>KPIs por canal e tipo de atendimento</label>
+<label class="opcao"><input name="p9" type="radio" value="3"/>Gestão ativa com análise de causa e planos de ação</label>
+</div>
+<div class="pergunta">
+<p>10. A operação é auditada ou acompanhada por programas de qualidade?</p>
+<label class="opcao"><input name="p10" type="radio" value="0"/>Não</label>
+<label class="opcao"><input name="p10" type="radio" value="1"/>Avaliações pontuais</label>
+<label class="opcao"><input name="p10" type="radio" value="2"/>Avaliação estruturada por amostras</label>
+<label class="opcao"><input name="p10" type="radio" value="3"/>Avaliação automatizada com feedback contínuo</label>
+</div>
+<!-- FIM DO FORMULÁRIO -->
+</div>
 <div style="text-align: center; margin-top: 3rem;">
-  <button type="button" onclick="coletarRespostas()" style="
+<button onclick="coletarRespostas()" onmouseout="this.style.backgroundColor='#003f5b'" onmouseover="this.style.backgroundColor='#005072'" style="
     background-color: #003f5b;
     color: white;
     padding: 1rem 2rem;
@@ -190,22 +224,26 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: background 0.3s ease;
-  " onmouseover="this.style.backgroundColor='#005072'" onmouseout="this.style.backgroundColor='#003f5b'">
+  " type="button">
     Ver Resultado
   </button>
 </div>
-
 <script>
   function coletarRespostas() {
     const respostas = {};
     for (let i = 1; i <= 10; i++) {
-      const selecionado = document.querySelector(`input[name="q${i}"]:checked`);
-      respostas[`q${i}`] = selecionado ? parseInt(selecionado.value) : 0;
+      const selecionado = document.querySelector(`input[name="p${i}"]:checked`);
+      respostas[`p${i}`] = selecionado ? parseInt(selecionado.value) : 0;
     }
+    
+    respostas["empresa"] = document.getElementById("empresa").value;
+    respostas["responsavel"] = document.getElementById("responsavel").value;
+    respostas["cargo"] = document.getElementById("cargo").value;
+    respostas["email"] = document.getElementById("email").value;
+
     localStorage.setItem("respostasFormulario", JSON.stringify(respostas));
     window.location.href = "resultado.html";
   }
 </script>
-
 </body>
 </html>
