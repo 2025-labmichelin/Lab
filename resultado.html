@@ -1,141 +1,232 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Resultado</title>
+  <meta charset="UTF-8">
+  <title>Resultado do Diagnóstico</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f4f6f9;
-      color: #333;
-      margin: 0;
-      padding: 0;
+    body { font-family: 'Segoe UI', sans-serif; background-color: #f4f6f9; padding: 2rem; }
+    header {
+      background-color: #002c5f;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
     }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem;
+    .resultado-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-bottom: 2rem;
     }
-    #blocoResultado {
+    .raquel-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background-color: #eaf0f6;
+      border-left: 6px solid #2563eb;
       padding: 1.5rem;
       border-radius: 12px;
-      color: white;
-      margin-bottom: 1rem;
+      flex: 1 1 300px;
+    }
+    .raquel-box img {
+      border-radius: 50%;
+      width: 80px;
+    }
+    .raquel-box h2 {
+      margin: 0 0 0.25rem 0;
+      color: #002c5f;
+    }
+    .raquel-box p {
+      margin: 0;
+      color: #002c5f;
+    }
+    .card-descricao-release {
+      background-color: #ffffff;
+      border-left: 6px solid #4caf50;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      flex: 1 1 300px;
+    }
+    .card-descricao-release h4 {
+      color: #002c5f;
+      margin-top: 0;
+    }
+    .card-descricao-release p {
+      color: #333;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+    .grafico-box {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      text-align: center;
+      max-width: 700px;
     }
     canvas {
-      max-width: 100%;
-      margin-top: 1rem;
+      max-width: 500px;
+      margin: auto;
+    }
+    .botao-pdf {
+      background: linear-gradient(90deg, #2563eb, #1e40af);
+      color: white;
+      padding: 0.75rem 1.75rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 2rem;
+      display: none;
+    }
+    .botao-pdf:hover {
+      background: linear-gradient(90deg, #4caf50, #388e3c);
     }
   </style>
 </head>
 <body>
-  
-<header style="background-color: #002c5f; color: white; padding: 1.5rem 2rem; text-align: center;">
-  <h1 style="margin: 0; font-size: 1.8rem;">SmartCX  Resultado do Diagnóstico</h1>
+<header>
+  <h1>SmartCX • Resultado do Diagnóstico</h1>
 </header>
-
-  
-<div style="display: flex; align-items: center; justify-content: center; gap: 1rem; background-color: #eaf0f6; padding: 1.5rem 2rem; margin-bottom: 2rem;">
-  <img src="raquel.png" alt="Raquel IA" style="width: 100px; border-radius: 50%;">
-  <div>
-    <h2 style="margin: 0 0 0.5rem 0; color: #002c5f;">Oi! Eu sou a Raquel 👋</h2>
-    <p style="margin: 0; color: #002c5f;">Vamos analisar juntos o resultado do seu diagnóstico e sugerir os próximos passos mais indicados para sua operação.</p>
+<div id="resultadoCompleto">
+  <div class="resultado-wrapper">
+    <div class="raquel-box">
+      <img src="../assets/raquel.png" alt="Raquel IA">
+      <div>
+        <h2 id="saudacaoRaquel"></h2>
+        <p>Já analisei suas respostas. A maturidade atual da sua empresa é:</p>
+        <h3 id="nivelMaturidade"></h3>
+      </div>
+    </div>
+    <div class="card-descricao-release">
+      <h4>Detalhes do nível atual</h4>
+      <p id="descricaoRelease"></p>
+    </div>
+  </div>
+  <div class="grafico-box">
+    <p id="loading" style="text-align:center;">🔄 Gerando gráfico e diagnóstico...</p>
+    <canvas id="graficoResultado"></canvas>
   </div>
 </div>
+<div style="text-align: center;">
+  <button class="botao-pdf" id="btnPdf" onclick="gerarPDF()">📊 Ver resultado em PDF</button>
+</div>
+<script>
+  const respostas = JSON.parse(localStorage.getItem("respostasFormulario"));
 
-  <div class="container">
-    <div id="blocoResultado">
-      <h2 id="tituloResultado" style="margin: 0; font-size: 1.2rem;"></h2>
-    </div>
-    <canvas id="graficoRadar"></canvas>
-  </div>
+  if (!respostas || !respostas.p1) {
+    document.getElementById("resultadoCompleto").innerHTML = "<p style='text-align:center; color: red;'>Não encontramos as respostas do diagnóstico. Por favor, preencha o formulário novamente.</p>";
+    throw new Error("Respostas não encontradas");
+  }
 
-  <script>
-    const faixas = [
-      {
-        Faixa: "0 – 10 pts",
-        Nivel: "Iniciando",
-        Recomendacao: "Release 1",
-        Cor: "#003f5b"
-      },
-      {
-        Faixa: "11 – 17 pts",
-        Nivel: "Emergente",
-        Recomendacao: "Release 2",
-        Cor: "#007b7f"
-      },
-      {
-        Faixa: "18 – 24 pts",
-        Nivel: "Eficiente",
-        Recomendacao: "Release 3",
-        Cor: "#38ac64"
-      },
-      {
-        Faixa: "25 – 30 pts",
-        Nivel: "Inteligente",
-        Recomendacao: "Release 4",
-        Cor: "#ff9913"
-      },
-      {
-        Faixa: "31 – 36 pts",
-        Nivel: "Avançado",
-        Recomendacao: "Release 5",
-        Cor: "#c00000"
-      }
-    ];
+  const nome = respostas?.responsavel || "Usuário";
+  const empresa = respostas?.empresa || "sua empresa";
+  document.getElementById("saudacaoRaquel").innerText = `Oi, ${nome}!`;
 
-    const respostas = JSON.parse(localStorage.getItem("respostasFormulario")) || {};
+  const p = [];
+  let total = 0;
+  for (let i = 1; i <= 10; i++) {
+    const val = parseInt(respostas[`p${i}`]) || 0;
+    p.push(val);
+    total += val;
+  }
 
-    const blocos = {
-      'Estratégia e Cultura': (respostas.q1 || 0) + (respostas.q2 || 0),
-      'Canais de Atendimento': (respostas.q3 || 0) + (respostas.q4 || 0),
-      'Processos e Pessoas': (respostas.q5 || 0) + (respostas.q6 || 0),
-      'Tecnologia e Automação': (respostas.q7 || 0) + (respostas.q8 || 0),
-      'Governança e Performance': (respostas.q9 || 0) + (respostas.q10 || 0)
-    };
+  let nivel = "";
+  let descricao = "";
+  let corRelease = "#2563eb";
 
-    const total = Object.values(blocos).reduce((a, b) => a + b, 0);
+  if (total <= 10) {
+    nivel = "Iniciando (Release 1)";
+    descricao = "Atendimento reativo, canais isolados, sem automação ou métricas estruturadas. Nesta primeira etapa, o foco é colocar o contact center em operação com agilidade e segurança. São ativados os canais principais de atendimento (voz, WhatsApp, Webchat), as ferramentas de supervisão e relatórios, além dos controles básicos de acesso e segurança. É a base para toda a evolução futura.";
+    corRelease = "#ef4444";
+  } else if (total <= 17) {
+    nivel = "Emergente (Release 2)";
+    descricao = "Início da automação com bots e inteligência artificial básica. Os fluxos passam a ser estruturados de forma estratégica, com roteamento inteligente e monitoramento de qualidade. O objetivo é reduzir esforço humano, acelerar atendimentos e organizar melhor os processos.";
+    corRelease = "#f97316";
+  } else if (total <= 24) {
+    nivel = "Eficiente (Release 3)";
+    descricao = "A operação passa a ser guiada por dados, com análise de sentimentos, desempenho por canal e relatórios estratégicos. Os agentes recebem suporte em tempo real com sugestões e transcrição automática. Decisões passam a ser tomadas com base em insights operacionais.";
+    corRelease = "#eab308";
+  } else if (total <= 30) {
+    nivel = "Inteligente (Release 4)";
+    descricao = "A operação se torna mais inteligente e preditiva. Com a gestão da força de trabalho (WFM), agentes autônomos com IA generativa e segurança avançada, a empresa ganha controle total sobre escalas, previsões e desempenho. É a consolidação de um contact center moderno e estratégico.";
+    corRelease = "#3b82f6";
+  } else {
+    nivel = "Avançado (Release 5)";
+    descricao = "Esta etapa atende clientes com necessidades específicas. São desenvolvidas soluções sob medida, integrações customizadas e fluxos exclusivos. A empresa ganha flexibilidade para adaptar o Talkdesk à sua realidade, segmento e regras de negócio, com acompanhamento consultivo próximo.";
+    corRelease = "#10b981";
+  }
 
-    const faixa = faixas.find(f => {
-      const [min, max] = f.Faixa.replace(' pts', '').split('–').map(s => parseInt(s.trim()));
-      return total >= min && total <= max;
-    });
+  document.getElementById("nivelMaturidade").innerText = nivel;
+  document.getElementById("descricaoRelease").innerText = descricao;
 
-    if (!faixa) {
-      document.getElementById("tituloResultado").innerText = "Não foi possível calcular o resultado.";
-      document.getElementById("blocoResultado").style.backgroundColor = "#999";
-    } else {
-      document.getElementById("tituloResultado").innerText = `Pontuação: ${total}/36 • Nível: ${faixa.Nivel} • ${faixa.Recomendacao}`;
-      document.getElementById("blocoResultado").style.backgroundColor = faixa.Cor;
+  const valoresRadar = [
+    p[0] + p[1],
+    p[2] + p[3],
+    p[4] + p[5],
+    p[6] + p[7],
+    p[8] + p[9]
+  ];
 
-      const ctx = document.getElementById('graficoRadar').getContext('2d');
-      new Chart(ctx, {
-        type: 'radar',
-        data: {
-          labels: Object.keys(blocos),
-          datasets: [{
-            label: 'Pontuação por Dimensão',
-            data: Object.values(blocos),
-            fill: true,
-            borderColor: faixa.Cor,
-            backgroundColor: faixa.Cor + '33',
-            pointBackgroundColor: faixa.Cor
-          }]
-        },
-        options: {
-          scales: {
-            r: {
-              min: 0,
-              max: 6,
-              ticks: { stepSize: 1 }
-            }
-          }
+  const ctx = document.getElementById('graficoResultado').getContext('2d');
+  const grafico = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: [
+        "Estratégia e Cultura",
+        "Canais de Atendimento",
+        "Processos e Pessoas",
+        "Tecnologia e Automação",
+        "Governança e Performance"
+      ],
+      datasets: [{
+        label: "Pontuação por dimensão",
+        data: valoresRadar,
+        backgroundColor: corRelease + "33",
+        borderColor: corRelease,
+        pointBackgroundColor: corRelease
+      }]
+    },
+    options: {
+      responsive: true,
+      animation: {
+        onComplete: () => {
+          window.graficoPronto = true;
+          document.getElementById("loading").style.display = "none";
+          document.getElementById("btnPdf").style.display = "inline-block";
         }
-      });
+      },
+      scales: {
+        r: {
+          beginAtZero: true,
+          max: 10,
+          ticks: { stepSize: 2 }
+        }
+      }
     }
-  </script>
+  });
+
+  function gerarPDF() {
+    if (!window.graficoPronto) {
+      setTimeout(gerarPDF, 500);
+      return;
+    }
+    const elemento = document.getElementById("resultadoCompleto");
+    const opt = {
+      margin: 0.5,
+      filename: `Diagnostico_${empresa.replace(/\s+/g, '_')}.pdf`,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().from(elemento).set(opt).save();
+  }
+</script>
 </body>
 </html>
