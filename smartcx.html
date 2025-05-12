@@ -1,122 +1,261 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!-- INÍCIO PARTE 1 – Cabeçalho e Estilos -->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SmartCX • Uma combinação inteligente de automação e interação humana</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      margin: 0;
       background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
       color: #333;
     }
     header {
       background-color: #002c5f;
       color: white;
-      padding: 1.5rem 2rem;
+      padding: 2rem;
       text-align: center;
     }
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
+    .section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 2rem;
     }
-    .raquel-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  background-color: #eaf0f6;
-  padding: 1.5rem 2rem;
-  text-align: center; /* <- este é o ponto chave */
-  }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: white;
+    .intro-box {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background-color: #eaf0f6;
       padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     }
-    h2 {
-      color: #002c5f;
+    .intro-box img {
+      width: 100px;
+      border-radius: 50%;
+    }
+    .highlight-box {
+      background: #f0f8ff;
       border-left: 6px solid #0061a8;
-      padding-left: 0.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 2rem;
+    }
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
       margin-top: 2rem;
     }
-    .pergunta {
-      background: #ffffff;
-      border: 1px solid #dce3ea;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      padding: 2rem;
-      margin: 2rem 0;
-      border-radius: 10px;
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+      border-left: 6px solid;
     }
-    .pergunta p {
+    .card-title {
+      font-size: 1.2rem;
       font-weight: bold;
+      color: #002c5f;
       margin-bottom: 1rem;
     }
-    .opcao {
-      display: block;
-      background: #f0f4f8;
-      padding: 0.8rem 1rem;
-      margin: 0.6rem 0;
-      border-radius: 6px;
-      transition: background 0.2s;
-      cursor: pointer;
-    }
-    .opcao:hover {
-      background: #d7e9f8;
-    }
-    input[type="radio"] {
-      margin-right: 0.6rem;
-    }
-    .submit-btn {
-      margin-top: 2rem;
-      background: #0061a8;
+    .card.red { border-color: #8B1E3F; }
+    .card.green { border-color: #2E7D32; }
+    .card.orange { border-color: #F57C00; }
+    .card.blue { border-color: #0061a8; }
+    .stair-step {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
       color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
+      max-width: 600px;
     }
-    .submit-btn:hover {
-      background: #004f87;
+    .nivel-1 { background-color: #003f5b; margin-left: 0; }
+    .nivel-2 { background-color: #007b7f; margin-left: 40px; }
+    .nivel-3 { background-color: #38ac64; margin-left: 80px; }
+    .nivel-4 { background-color: #ff9913; margin-left: 120px; }
+    .release {
+      margin: 1rem auto;
+      padding: 1rem;
+      border-radius: 8px;
+      color: white;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .release-1 { width: 100%; background: #003f5b; }
+    .release-2 { width: 90%; background: #007b7f; }
+    .release-3 { width: 80%; background: #38ac64; }
+    .release-4 { width: 70%; background: #ff9913; }
+    .release-5 { width: 60%; background: #f55442; }
+    .release a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 1rem;
+    }
+    .release a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .cta-button {
+      background: linear-gradient(90deg, #0061a8 0%, #ff9913 100%);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    /* Rodapé fixo da Raquel */
+    .rodape-raquel.fixo {
+      background-color: #002c5f;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      font-family: 'Segoe UI', sans-serif;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
     }
   </style>
 </head>
-<body>
-  <header>
-    <h1>SmartCX • Uma combinação inteligente de automação e interação humana</h1>
-  </header>
-  <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; background-color: #eaf0f6; padding: 1.5rem 2rem; margin-bottom: 2rem;">
-  <img src="raquel.png" alt="Raquel IA" style="width: 100px; border-radius: 50%;">
-  <div>
-    <h2 style="margin: 0 0 0.5rem 0; color: #002c5f;">Oi! Eu sou a Raquel 👋</h2>
-    <p style="margin: 0; color: #002c5f;">O SmartCX é a nossa forma inteligente de transformar experiências em todos os canais. Vou te mostrar como essa jornada funciona na prática!</p>
+<!-- FIM PARTE 1 -->
+<!-- INÍCIO BLOCO 1 – Header -->
+<header>
+  <h1>SmartCX • Uma combinação inteligente de automação e interação humana</h1>
+</header>
+<!-- FIM BLOCO 1 -->
+<!-- INÍCIO BLOCO 2 – Apresentação da Raquel -->
+<div class="section">
+  <div class="intro-box">
+    <img src="../assets/raquel.png" alt="Raquel, IA da Wittel" />
+    <div>
+      <h2>Oi! Eu sou a Raquel 👋</h2>
+      <p>Sou a especialista da Wittel em experiência do cliente. Estou aqui para te guiar nessa jornada de evolução com o SmartCX.</p>
+    </div>
   </div>
 </div>
-  
-    <!-- Continue com as demais perguntas aqui -->
-    
+<!-- FIM BLOCO 2 -->
+<!-- INÍCIO BLOCO 3 – O que é o SmartCX -->
+<div class="section">
+  <div class="card blue">
+    <div class="card-title">O que é o SmartCX</div>
+    <p>O SmartCX é o hub de tecnologia voltado para o equilíbrio da experiência digital e humana, com foco na otimização da experiência do cliente. Com integração Omnichannel, automação e inteligência artificial (IA), a Wittel ajuda as empresas a criar jornadas resolutivas e eficientes. O SmartCX conecta canais, dados e pessoas em uma estrutura evolutiva, inteligente e centrada nas reais necessidades do cliente.</p>
   </div>
-  <div style="max-width: 1000px; margin: 2rem auto; padding: 0 2rem; display: flex; flex-wrap: wrap; gap: 2rem;">
-    <div style="flex: 1 1 400px; background: white; border-left: 6px solid #0061a8; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 2rem;">
-      <h3 style="margin-top: 0; color: #002c5f;">O que é SmartCX?</h3>
-      <p>Hub de tecnologia voltado para o equilíbrio da experiência digital e humana, com foco na otimização da experiência do cliente. Com integração Omnichannel, automação e inteligência artificial (IA), a Wittel ajuda grandes empresas a criar jornadas resolutivas e eficientes.</p>
+</div>
+<!-- FIM BLOCO 3 -->
+<!-- INÍCIO BLOCO 4 – Objetivo do SmartCX -->
+<div class="section highlight-box">
+  <h3>Objetivo do SmartCX</h3>
+  <p>O principal objetivo do SmartCX é otimizar e personalizar a experiência do cliente em todos os canais de contato, criando interações mais eficientes, ágeis e satisfatórias. A proposta é transformar a jornada do cliente em um processo fluido, automatizado e centrado nas necessidades, utilizando dados para melhorar continuamente cada interação.</p>
+</div>
+<!-- FIM BLOCO 4 -->
+<!-- INÍCIO BLOCO 5 – Pilares do SmartCX -->
+<div class="section">
+  <h3>Pilares do SmartCX</h3>
+  <div class="cards-container">
+    <div class="card red">
+      <div class="card-title">Estrutura Evolutiva e Sustentável</div>
+      <p>O SmartCX é construído por meio de releases progressivas, que respeitam o nível de maturidade do cliente e priorizam entregas com valor imediato. Cada etapa prepara a base para a próxima, promovendo uma evolução contínua, segura e com baixo risco de fricção técnica ou operacional. Avançar com solidez é mais eficaz do que transformar de forma abrupta.</p>
     </div>
-    <div style="flex: 1 1 400px; background: white; border-left: 6px solid #43a047; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 2rem;">
-      <h3 style="margin-top: 0; color: #002c5f;">Objetivo Principal</h3>
-      <p>Otimizar e personalizar a experiência do cliente em todos os canais de contato, criando interações mais eficientes, ágeis e satisfatórias. Transformar a jornada do cliente em um processo fluido, automatizado e centrado nas necessidades, utilizando dados para melhorar continuamente cada interação.</p>
+    <div class="card green">
+      <div class="card-title">Decisões Guiadas por Dados</div>
+      <p>A estrutura do SmartCX é orientada por dados desde o início. Relatórios operacionais, análises de desempenho, insights automatizados e visão omnichannel formam a base da gestão. A operação deixa de ser reativa e passa a ser conduzida por informação, com mais previsibilidade, clareza e controle.</p>
     </div>
-    <div style="flex: 1 1 100%; background: #f0f8ff; border-left: 6px solid #0061a8; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
-      <h3 style="margin: 0; color: #002c5f; font-weight: normal; flex: 1 1 60%;">✨ Vamos juntos entender o nível de maturidade da sua jornada?</h3>
-      <a href="formulario.html" style="background-color: #0061a8; color: white; padding: 0.8rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: bold; flex: 1 1 30%; text-align: center;">Fazer Diagnóstico</a>
+    <div class="card orange">
+      <div class="card-title">Atendimento Inteligente e Centrado no Cliente</div>
+      <p>A proposta do SmartCX não é apenas implantar canais, mas redesenhar jornadas. Isso significa equilibrar automação, IA e presença humana com foco na experiência real do cliente. Com suporte ativo dos times de CX, pré-vendas e comercial, cada cliente recebe orientação contínua e personalizada para construir interações mais fluídas, relevantes e eficazes.</p>
     </div>
+  </div>
+</div>
+<!-- FIM BLOCO 5 -->
+<!-- INÍCIO BLOCO 6 – Mapa de Maturidade -->
+<div class="section">
+  <h3>O que é o Mapa de Maturidade</h3>
+  <p>O Mapa de Maturidade é uma ferramenta desenvolvida pela Wittel para identificar, de forma estruturada, o estágio atual de evolução de cada cliente na sua jornada de experiência do cliente (CX). Essa análise considera aspectos como a integração de canais, uso de dados, nível de automação, governança de atendimento e cultura centrada no cliente.</p>
+  <p>Mais do que um diagnóstico estático, o Mapa de Maturidade permite alinhar expectativas, definir prioridades e orientar a evolução com entregas progressivas e sustentáveis. Ele é utilizado pelos times de CX, pré-vendas e comercial da Wittel como base para a definição das releases do SmartCX, garantindo que cada passo respeite o momento e os objetivos da empresa.</p>
+</div>
+<!-- FIM BLOCO 6 -->
+<!-- INÍCIO BLOCO 7 – Classificação da Maturidade -->
+<div class="section">
+  <h3>Classificação da Maturidade</h3>
 
-  <div style="text-align: center; margin: 3rem 0;">
-    <img src="piramide.png" alt="Pirâmide de Maturidade SmartCX" style="width: 100%; max-width: 1400px; height: auto;">
+  <div class="stair-step nivel-1">
+    <h4>Iniciando</h4>
+    <p>Atendimento reativo, canais isolados, sem automação ou métricas estruturadas. A operação é básica e altamente manual, com baixa integração e pouca governança.</p>
   </div>
-</body>
-</html>
+
+  <div class="stair-step nivel-2">
+    <h4>Emergente</h4>
+    <p>Início da centralização de canais, definição de fluxos básicos, primeiros KPIs. A empresa começa a estruturar seu atendimento e a ter visibilidade dos processos.</p>
+  </div>
+
+  <div class="stair-step nivel-3">
+    <h4>Eficiente</h4>
+    <p>Operação integrada, uso de omnichannel, automação básica e cultura de melhoria contínua. O atendimento se torna mais fluido e baseado em dados.</p>
+  </div>
+
+  <div class="stair-step nivel-4">
+    <h4>Inteligente</h4>
+    <p>Uso de inteligência artificial e analytics, automação avançada, decisões orientadas por dados e uma estratégia de CX consolidada como diferencial competitivo.</p>
+  </div>
+</div>
+<!-- FIM BLOCO 7 -->
+<!-- INÍCIO BLOCO 8 – Chamada para Ação (Diagnóstico) -->
+<div class="section">
+  <h3>Vamos juntos entender o nível de maturidade da sua jornada?</h3>
+  <p>Com base nas suas respostas, conseguimos identificar o estágio atual da sua operação e sugerir os próximos passos da sua evolução.</p>
+  <a href="formulario.html" class="cta-button">Fazer Diagnóstico</a>
+</div>
+<!-- FIM BLOCO 8 -->
+<!-- INÍCIO BLOCO 9 – Releases do SmartCX -->
+<div class="section">
+  <h3>Pirâmide das Releases do SmartCX</h3>
+
+  <div class="release release-5">
+    <a href="release5.html">
+      <strong>Release 5 – Hiperpersonalização / Customização</strong><br>
+      Esta etapa atende clientes com necessidades específicas. São desenvolvidas soluções sob medida, integrações customizadas e fluxos exclusivos. A empresa ganha flexibilidade para adaptar o Talkdesk à sua realidade, segmento e regras de negócio, com acompanhamento consultivo próximo.
+    </a>
+  </div>
+
+  <div class="release release-4">
+    <a href="release4.html">
+      <strong>Release 4 – Maturidade Estratégica</strong><br>
+      A operação se torna mais inteligente e preditiva. Com a gestão da força de trabalho (WFM), agentes autônomos com IA generativa e segurança avançada, a empresa ganha controle total sobre escalas, previsões e desempenho. É a consolidação de um contact center moderno e estratégico.
+    </a>
+  </div>
+
+  <div class="release release-3">
+    <a href="release3.html">
+      <strong>Release 3 – Inteligência Operacional</strong><br>
+      Nesta fase, os agentes recebem suporte em tempo real com sugestões e transcrição automática. A operação passa a ser guiada por dados, com análise de sentimentos, desempenho por canal e relatórios estratégicos. Decisões passam a ser tomadas com base em insights operacionais.
+    </a>
+  </div>
+
+  <div class="release release-2">
+    <a href="release2.html">
+      <strong>Release 2 – Eficiência e Automação</strong><br>
+      Aqui iniciamos a automação do atendimento com bots e inteligência artificial. Os fluxos passam a ser estruturados de forma estratégica, com roteamento inteligente e monitoramento de qualidade. O objetivo é reduzir esforço humano, acelerar atendimentos e organizar melhor os processos.
+    </a>
+  </div>
+
+  <div class="release release-1">
+    <a href="release1.html">
+      <strong>Release 1 – Fundação</strong><br>
+      Nesta primeira etapa, o foco é colocar o contact center em operação com agilidade e segurança. São ativados os canais principais de atendimento (voz, WhatsApp, Webchat), as ferramentas de supervisão e relatórios, além dos controles básicos de acesso e segurança. É a base para toda a evolução futura.
+    </a>
+  </div>
+</div>
+<!-- FIM BLOCO 9 -->
+<!-- INÍCIO BLOCO 10 – Rodapé -->
+<footer class="rodape-raquel fixo">
+  © 2025 Wittel | Desenvolvido com apoio da Raquel, sua IA especialista em CX 💙
+</footer>
+<!-- FIM BLOCO 10 -->
