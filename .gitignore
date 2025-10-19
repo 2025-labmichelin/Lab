@@ -1,0 +1,18 @@
+node_modules/
+.env
+.DS_Store
+.vscode/
+data/trello-data.json
+data/processed-data.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage/
+dist/
+.public/
+# Lockfiles
+package-lock.json
+yarn.lock
+
+# Optional editor folders
+.idea/
